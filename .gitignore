@@ -1,14 +1,1 @@
-# Elixir build artifacts
-/_build
-/deps
-
-# Node.js dependencies
-/node_modules
-
-# Editor and OS specific files
-/.vscode
 .DS_Store
-*.swp
-
-# DevContainer specific files
-/.devcontainer/postgres-data

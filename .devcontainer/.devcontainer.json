@@ -55,7 +55,6 @@
                 "editor.formatOnSave": true,
                 // Terminal settings
                 "terminal.integrated.defaultProfile.linux": "zsh",
-                "terminal.integrated.fontFamily": "monospace",
                 // File settings
                 "files.trimTrailingWhitespace": true,
                 "files.insertFinalNewline": true,
@@ -73,9 +72,6 @@
                     "**/deps": true,
                     "**/_build": true
                 },
-                // Git settings
-                "git.enableSmartCommit": true,
-                "git.confirmSync": false,
                 // Emmet settings
                 "emmet.includeLanguages": {
                     "elixir": "html",
