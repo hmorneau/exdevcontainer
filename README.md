@@ -20,7 +20,7 @@ Add the .devcontainer directory to your Elixir project. The directory should con
 
 See IEX Configuration section for details on the `iex.exs` file.
 
-3. When prompted by Visual Studio Code, reopen the project in the container.
+When prompted by Visual Studio Code, reopen the project in the container.
 
 ## IEx Configuration
 
@@ -32,6 +32,13 @@ if Mix.env() == :dev do
   Mix.ensure_application!(:observer)
 end
 ```
+
+## Observer
+To use Observer, follow these steps:
+
+in IEx run :observer.start()
+
+Connect your browser to the VNC server at http://localhost:6080/ and click on "Connect".
 
 ## Observer Warnings
 
