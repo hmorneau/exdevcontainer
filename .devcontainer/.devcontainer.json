@@ -1,0 +1,100 @@
+{
+    "name": "workspace",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "elixir",
+    "workspaceFolder": "/workspace",
+    // Remote environment variables for Observer
+    "remoteEnv": {
+        "DOCKER_HOST": "unix:///var/run/docker.sock",
+        "ERL_AFLAGS": "-kernel shell_history enabled"
+    },
+    // Ports for: Phoenix (4000), Tests (4001), Postgres (5432), Observer VNC (6080)
+    "forwardPorts": [
+        4000,
+        4001,
+        5432,
+        6080
+    ],
+    // Features configuration for :observer
+    "features": {
+        "ghcr.io/devcontainers/features/desktop-lite": {},
+        "ghcr.io/jungaretti/features/make:1": {}
+    },
+    "portsAttributes": {
+        "4000": {
+            "label": "Phoenix Server",
+            "onAutoForward": "notify",
+            "protocol": "http"
+        },
+        "4001": {
+            "label": "Test Server",
+            "onAutoForward": "silent",
+            "protocol": "http"
+        },
+        "5432": {
+            "label": "PostgreSQL",
+            "onAutoForward": "silent"
+        },
+        "6080": {
+            "label": "Observer (VNC)",
+            "onAutoForward": "notify",
+            "protocol": "http"
+        }
+    },
+    // VS Code specific settings
+    "customizations": {
+        "vscode": {
+            "settings": {
+                // ElixirLS settings
+                "elixirLS.suggestSpecs": false,
+                "elixirLS.dialyzerEnabled": true,
+                "elixirLS.signatureAfterComplete": false,
+                "elixirLS.fetchDeps": false,
+                // Editor settings
+                "editor.formatOnPaste": true,
+                "editor.formatOnSave": true,
+                // Terminal settings
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.fontFamily": "monospace",
+                // File settings
+                "files.trimTrailingWhitespace": true,
+                "files.insertFinalNewline": true,
+                "files.trimFinalNewlines": true,
+                "files.associations": {
+                    "*.heex": "phoenix-heex",
+                    "*.leex": "phoenix-heex",
+                    "*.eex": "eex",
+                    "*.ex": "elixir",
+                    "*.exs": "elixir"
+                },
+                // Search settings
+                "search.exclude": {
+                    "**/node_modules": true,
+                    "**/deps": true,
+                    "**/_build": true
+                },
+                // Git settings
+                "git.enableSmartCommit": true,
+                "git.confirmSync": false,
+                // Emmet settings
+                "emmet.includeLanguages": {
+                    "elixir": "html",
+                    "phoenix-heex": "html",
+                    "eex": "html"
+                },
+                "emmet.triggerExpansionOnTab": true,
+                // Explorer settings
+                "explorer.compactFolders": false
+            },
+            "extensions": [
+                "JakeBecker.elixir-ls",
+                "phoenixframework.phoenix",
+                "bradlc.vscode-tailwindcss",
+                "vortizhe.simple-ruby-erb",
+                "t3dotgg.vsc-material-theme-but-i-wont-sue-you"
+            ]
+        }
+    },
+    // Use non-root user
+    "remoteUser": "vscode"
+}
