@@ -16,6 +16,11 @@ RUN curl -sSL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/
     /tmp/common-debian.sh "${INSTALL_ZSH}" "vscode" "1000" "1000" "${UPGRADE_PACKAGES}" "${INSTALL_OH_MYS}" && \
     rm /tmp/common-debian.sh
 
+# Docker socket access - handle both docker group and root group cases
+RUN groupadd -g 999 docker || true && \
+    usermod -aG docker vscode && \
+    usermod -aG root vscode
+
 # Install Hex, Rebar, and Phoenix as the vscode user
 RUN su vscode -c "mix local.hex --force && \
     mix local.rebar --force && \

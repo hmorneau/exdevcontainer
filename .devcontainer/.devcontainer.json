@@ -87,7 +87,7 @@
                 "phoenixframework.phoenix",
                 "bradlc.vscode-tailwindcss",
                 "vortizhe.simple-ruby-erb",
-                "t3dotgg.vsc-material-theme-but-i-wont-sue-you"
+                "ms-azuretools.vscode-docker"
             ]
         }
     },
