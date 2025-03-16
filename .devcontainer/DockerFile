@@ -5,7 +5,7 @@ ARG INSTALL_ZSH="true"
 ARG INSTALL_OH_MYS="true"
 ARG UPGRADE_PACKAGES="true"
 # Set additional packages not included in the setup script
-ARG ADDITIONAL_PACKAGES="inotify-tools postgresql-client npm docker.io iputils-ping dnsutils telnet libwxgtk3.2-dev libgtk-3-0 x11-xserver-utils chromium chromium-driver direnv"
+ARG ADDITIONAL_PACKAGES="inotify-tools postgresql-client npm docker.io iputils-ping dnsutils telnet libwxgtk3.2-dev libgtk-3-0 x11-xserver-utils chromium chromium-driver direnv watchman"
 
 # Install additional packages
 RUN apt-get update && apt-get install -y $ADDITIONAL_PACKAGES && apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -20,6 +20,11 @@ RUN curl -sSL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/
 RUN groupadd -g 999 docker || true && \
     usermod -aG docker vscode && \
     usermod -aG root vscode
+
+# Install Node.js 22.x
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g npm@latest
 
 # Install Hex, Rebar, and Phoenix as the vscode user
 RUN su vscode -c "mix local.hex --force && \
