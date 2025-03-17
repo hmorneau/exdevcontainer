@@ -1,4 +1,4 @@
-# Elixir DevContainer Setup
+# Elixir Dev Container Setup
 
 This repository contains a development container setup for Elixir projects. It includes all necessary configurations and dependencies to get started with Elixir development using Visual Studio Code and Docker.
 
@@ -10,7 +10,7 @@ This repository contains a development container setup for Elixir projects. It i
 - Observer (with VNC support)
 - Zsh and Oh My Zsh
 - Docker extension to manage docker on your host
-- Additional tools: inotify-tools, postgresql-client, npm, docker.io, iputils-ping, dnsutils, telnet, libwxgtk3.2-dev, libgtk-3-0, x11-xserver-utils, chromium, chromium-driver, direnv
+- Additional tools: inotify-tools, postgresql-client, npm, docker.io, iputils-ping, dnsutils, telnet, libwxgtk3.2-dev, libgtk-3-0, x11-xserver-utils, chromium, chromium-driver, direnv, node.js, watchman
 
 ## Setup
 
